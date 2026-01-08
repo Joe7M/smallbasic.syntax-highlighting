@@ -1,0 +1,11 @@
+{
+  "name": "lang-smallbasic",
+  "version": "6.5.1",
+  "description": "SmallBASIC syntax coloring for Atom",
+  "repository": "https://github.com/Joe7M/smallbasic.atom.syntaxcoloring.git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}

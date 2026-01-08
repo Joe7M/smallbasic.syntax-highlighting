@@ -1,0 +1,89 @@
+## NANO syntax highlighting for SmallBASIC
+
+syntax "smallbasic" "\.(bas|BAS)$"
+
+# Variable names
+
+icolor white "\<[A-Z_][A-Za-z0-9_]*(|\$|\%|\&|\||\(\))\>"
+
+# System vars
+
+icolor cyan "\<(COMMAND|CWD|FALSE|HOME|NIL|MAXINT|PI|SBVER|SELF|TRUE|XMAX|YMAX)\>"
+
+# Functions and subs
+
+icolor brightgreen "\<(ABS|ABSMAX|ABSMIN|ACCESS|ACOS|ACOSH|ACOT|ACOTH|ACSC|ACSCH|APPEND|ARC|ARRAY|ASC|ASEC|ASECH|ASIN|ASINH|AT|ATAN|ATAN2|ATANH|ATN)\>"
+icolor brightgreen "\<(BCS|BEEP|BGETC|BIN|BLOAD|BPUTC|BSAVE)\>"
+icolor brightgreen "\<(CALL|CAT|CBS|CEIL|CHAIN|CHART|CHDIR|CHMOD|CHOP|CHR|CIRCLE|CLOSE|CLS|COLOR|COPY|COS|COSH|COT|COTH|CSC|CSCH)\>"
+icolor brightgreen "\<(DATE|DATEDMY|DATEFMT|DEG|DELAY|DELETE|DERIV|DETERM|DIFFEQN|DIRWALK|DISCLOSE DRAW|DRAWPOLY)\>"
+icolor brightgreen "\<(EMPTY|ENCLOSE|ENV|EOF|ERASE|EXEC|EXIST|EXIT|EXP|EXPRSEQ)\>"
+icolor brightgreen "\<(FILES|FIX|FLOOR|FORM|FORMAT|FRAC|FRE|FREEFILE)\>"
+icolor brightgreen "\<(HEX)\>"
+icolor brightgreen "\<(IFF|IMAGE|INKEY|INPUT|INSERT|INSTR|INT|INTERSECT|INVERSE|ISARRAY|ISDIR|ISFILE|ISLINK|ISMAP|ISNUMBER|ISSTRING)\>"
+icolor brightgreen "\<(JOIN|JULIAN|KILL)\>"
+icolor brightgreen "\<(LBOUND|LCASE|LEFT|LEFTOF|LEFTOFLAST|LEN|LINE|LINEINPUT|LINEQN|LINPUT|LOCATE| LOCK|LOF|LOG|LOG10|LOGPRINT|LOWER|LTRIM)\>"
+icolor brightgreen "\<(M3APPLY|M3IDENT|M3ROTATE|M3SCALE|M3TRANS|MAX|MID|MIN|MKDIR)\>"
+icolor brightgreen "\<(NOSOUND)\>"
+icolor brightgreen "\<(OCT|OPEN|PAINT|PAUSE|PEN|PLAY|PLOT|POINT|POLYAREA|POLYCENT|POLYEXT|POW|PRINT|PROGLINE|PSET|PTDISTLN|PTDISTSEG|PTSIGN)\>"
+icolor brightgreen "\<(RAD|READ|RECT|RENAME|REPLACE|RESTORE|RGB|RGBF|RIGHT|RIGHTOF|RIGHTOFLAST|RINSTR|RMDIR|RND|ROOT|ROUND|RTRIM|RUN)\>"
+icolor brightgreen "\<(SEARCH|SEC|SECH|SEEK|SEGCOS|SEGLEN|SEGSIN|SEQ|SGN|SHOWPAGE|SIN|SINH|SINPUT|SORT|SOUND|SPACE|SPC|SPLIT|SPRINT|SQR|SQUEEZE|STATMEAN|STATMEANDEV|STATMEDIAN|STATSPREADP|STATSPREADS|STATSTD|STKDUMP|STR|STRING|SUM|SUMSQ|SWAP)\>"
+icolor brightgreen "\<(TAB|TAN|TANH|TEXTHEIGHT|TEXTWIDTH|TICKS|TIME|TIMEHMS|TIMER|TIMESTAMP|TLOAD|TRANSLATE|TRANSPOSE|TRIM|TSAVE|TXTH|TXTW)\>"
+icolor brightgreen "\<(UBOUND|UCASE|UPPER)\>"
+icolor brightgreen "\<(VAL|VIEW)\>"
+icolor brightgreen "\<(WEEKDAY|WINDOW|WRITE)\>"
+icolor brightgreen "\<(XPOS|YPOS)\>"
+
+# Special commands
+
+icolor green "\<(AS|BG|IN|LIKE|ON|USE|USG|USING)\>"
+
+# Variable declaration commands
+
+icolor brightmagenta "\<BYREF\>"
+icolor brightmagenta "(^|^[[:space:]]*)(CONST|DIM|LOCAL|LET|REDIM)\>"
+
+# Units, data, goto, ...
+
+icolor cyan "(^|^[[:space:]]*)(DATA|EXPORT|GOSUB|GOTO|IMPORT|INCLUDE|LABEL|OPTION|RANDOMIZE|UNIT)"
+
+# Loops, conditionals, func and sub
+
+icolor brightyellow "\<(CASE|CATCH|DECLARE|DEF|DEFINEKEY|DO|END|TRY|ENDIF|ELIF|ELSE|ELSEIF|FI|FOR|FUNC|IF|NEXT|REPEAT|RETURN|SELECT|SUB|STEP|THEN|TO|THROW|TRY|UNTIL|WEND|WHILE)\>"
+
+icolor brightred "(^|^[[:space:]]*)(STOP|TRON|TROFF)\>"
+
+# Logic and bit operators
+
+icolor orange "\<(AND|BAND|BOR|EQV|IMP|LSHIFT|NAND|NOR|OR|RSHIFT|XNOR|XOR)\>"
+
+# Operators
+
+color white "[+*=\^]" "<" ">" "/" "-"
+icolor orange "\<(MDL|MOD)\>"
+color brightred "[@\~!]"
+
+# Number constants
+
+icolor yellow  "\b0o?[0-7]+?\b" "\b0x[1-9a-f][0-9a-f]+?\b" "\b0b[01]+\b"
+icolor yellow "\b([0-9]+)\b"
+
+# parentheses
+color magenta "[(){}]" "\[" "\]"
+
+# Strings
+color yellow "<[^= ]*>" ""(\\.|[^"])*""
+
+# Comments
+
+color brightblue "(^|^[[:space:]]*)'.*$"
+icolor brightblue "(^|^[[:space:]]*)REM.*$"
+color brightblue "!.*$"
+
+
+# Shebang
+
+icolor brightwhite,green "^\#\!.*$"
+
+# reminders
+
+color brightwhite,yellow "(FIXME|TODO|XXX)"

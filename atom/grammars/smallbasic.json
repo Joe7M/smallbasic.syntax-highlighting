@@ -1,0 +1,163 @@
+{
+    "scopeName": "source.smallbasic",
+    "fileTypes": [
+        "bas"
+    ],
+    "firstLineMatch": "-[*]-( Mode:)? SmallBASIC -[*]-",
+    "name": "smallbasic",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "match": "(?i)\\b(FUNC|SUB|END SUB|END FUNC|END SELECT|END|AS|CASE|CATCH|DATA|DECLARE|DEF|DEFINEKEY|DO|ELIF|ELSE|ELSEIF|TRY|ENDIF|FI|FILLED|FOR|GOSUB|GOTO|IF|IFF|IN|LABEL|LET|LIKE|NEXT|ON|REDIM|REPEAT|SELECT|SELF|STEP|THEN|THROW|TO|TRY|UNTIL|USE|USG|USING|WEND|WHILE)\\b",
+            "name": "keyword.control.smallbasic"
+        },
+        {
+            "match": "(?i)\\b(ABS|ABSMAX|ABSMIN|ACCESS|ACOS|ACOSH|ACOT|ACOTH|ACSC|ACSCH|APPEND|ARC|ARRAY|ASC|ASEC|ASECH|ASIN|ASINH|AT|ATAN|ATAN2|ATANH|ATN|BCS|BEEP|BG|BGETC|BIN|BLOAD|BPUTC|BSAVE|CALL|CAT|CBS|CDBL|CEIL|CHAIN|CHART|CHDIR|CHMOD|CHOP|CHR|CINT|CIRCLE|CLOSE|CLS|COLOR|COMMAND|COPY|COS|COSH|COT|COTH|CREAL|CSC|CSCH|CWD|DATE|DATEDMY|DATEFMT|DEG|DELAY|DELETE|DERIV|DETERM|DIFFEQN|DIRWALK|DISCLOSE|DRAW|DRAWPOLY|EMPTY|ENCLOSE|ENV|EOF|ERASE|EXEC|EXIST|EXIT|EXP|EXPRSEQ|FILES|FIX|FLOOR|FORM|FORMAT|FRAC|FRE|FREEFILE|HEX|HOME|IMAGE|INKEY|INPUT|INSERT|INSTR|INT|INTERSECT|INVERSE|ISARRAY|ISDIR|ISFILE|ISLINK|ISMAP|ISNUMBER|ISSTRING|JOIN|JULIAN|KILL|LBOUND|LCASE|LEFT|LEFTOF|LEFTOFLAST|LEN|LINE|LINEINPUT|LINEQN|LINPUT|LOCATE|LOCK|LOF|LOG|LOG10|LOGPRINT|LOWER|LTRIM|M3APPLY|M3IDENT|M3ROTATE|M3SCALE|M3TRANS|MAX|MID|MIN|MKDIR|NOSOUND|OCT|OPEN|PAINT|PAUSE|PEN|PLAY|PLOT|POINT|POLYAREA|POLYCENT|POLYEXT|POW|PRINT|PROGLINE|PSET|PTDISTLN|PTDISTSEG|PTSIGN|RAD|RANDOMIZE|READ|RECT|RENAME|REPLACE|RESTORE|RETURN|RGB|RGBF|RIGHT|RIGHTOF|RIGHTOFLAST|RINSTR|RMDIR|RND|ROOT|ROUND|RTRIM|RUN|SBVER|SEARCH|SEC|SECH|SEEK|SEGCOS|SEGLEN|SEGSIN|SEQ|SGN|SHOWPAGE|SIN|SINH|SINPUT|SORT|SOUND|SPACE|SPC|SPLIT|SPRINT|SQR|SQUEEZE|STATMEAN|STATMEANDEV|STATSPREADP|STATSPREADS|STKDUMP|STOP|STR|STRING|SUM|SUMSQ|SWAP|TAB|TAN|TANH|TEXTHEIGHT|TEXTWIDTH|t(i(c(k(s))))|TIME|TIMEHMS|TIMER|TIMESTAMP|TLOAD|TRANSLATE|TRIM|TROFF|TRON|TSAVE|TXTH|TXTW|UBOUND|UCASE|UPPER|VAL|VIEW|WEEKDAY|WINDOW|WRITE)\\b",
+            "name": "support.function.smallbasic"
+        },
+        {
+            "match": "(?i)\\b(EXPORT|IMPORT|INCLUDE|OPTION|UNIT)\\b",
+            "name": "entity.name.function.preprocessor.smallbasic"
+        },
+        {
+            "match": "(?i)\\b(AND|BAND|BOR|EQV|IMP|MOD|NAND|NOR|NOT|LSHIFT|MDL|OR|RSHIFT|XNOR|XOR)\\b",
+            "name": "keyword.operator.smallbasic"
+        },
+        {
+            "match": "(?i)\\b(DIM|REDIM)\\b",
+            "name": "storage.type.smallbasic"
+        },
+        {
+            "match": "(?i)\\b(CONST|LOCAL|BYREF)\\b",
+            "name": "storage.modifier.smallbasic"
+        },
+        {
+            "match": "(?i)\\b(FALSE|MAXINT|NIL|PI|TRUE|XMAX|XPOS|YMAX|YPOS)\\b",
+            "name": "constant.language.smallbasic"
+        },
+        {
+            "match": "\\b((([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "match": "\\b(0[xX][0-9a-fA-F]+)\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "match": "&(h|H)[0-9a-fA-F]+\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "match": "\\b(0[oO][0-7]+)\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "match": "&(o|O)[0-7]+\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "match": "\\b(0[bB][0-1]+)\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "match": "&(b|B)[0-1]+\\b",
+            "name": "constant.numeric.smallbasic"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#functions"
+        }
+
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                    {
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.begin.smallbasic"
+                        }
+                    },
+                    "end": "\\n",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.end.smallbasic"
+                        }
+                    },
+                    "name": "comment.block.smallbasic"
+                },
+                {
+                    "begin": "(?i)\\b(REM)\\b",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.begin.smallbasic"
+                        }
+                    },
+                    "end": "\\n",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.end.smallbasic"
+                        }
+                    },
+                    "name": "comment.block.smallbasic"
+                }
+
+            ]
+        },
+        "strings": {
+            "begin": "\"",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.smallbasic"
+                }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.smallbasic"
+                }
+            },
+            "name": "string.quoted.double.smallbasic",
+            "patterns": [
+                {
+                    "include": "#string_escaped_char"
+                }
+            ]
+        },
+        "string_escaped_char": {
+            "patterns": [
+                {
+                    "match": "\\\\(\\\\|[abefnprtv'\"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})",
+                    "name": "constant.character.escape.smallbasic"
+                },
+                {
+                    "match": "\\\\.",
+                    "name": "invalid.illegal.unknown-escape.smallbasic"
+                }
+            ]
+        },
+        "functions": {
+            "begin": "(?x)\n    \t\t(?:  ^                                 # begin-of-line\n    \t\t  |  \n    \t\t     (?: (?= \\s )           (?<!else) (?<=\\w)      #  or word + space before name\n    \t\t       | (?= \\s*[A-Za-z_] ) (?<!&&)       (?<=[*&>])   #  or type modifier before name\n    \t\t     )\n    \t\t)\n    \t\t(\\s*) (?!(while|for|until|if|else|select|case|[cr]?iterate)\\s*\\()\n    \t\t(\n    \t\t\t(?: [A-Za-z_.][A-Za-z0-9_.]*+ | :: )++ |                  # actual name\n    \t\t\t(?: (?<=operator) (?: [-*&<>=+!]+ | \\(\\) | \\[\\] ) )  # if it is a C++ operator\n    \t\t)\n    \t\t \\s*(?=\\()",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.whitespace.function.leading.smallbasic"
+                },
+                "3": {
+                    "name": "entity.name.function.smallbasic"
+                },
+                "4": {
+                    "name": "punctuation.definition.parameters.smallbasic"
+                }
+            },
+            "end": "(?<=\\})|(?=())|(\n)",
+            "name": "meta.function.smallbasic"
+
+        }
+
+    }
+}
